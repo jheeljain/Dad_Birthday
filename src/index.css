@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 45% 11%;
+    --foreground: 0 0% 96%;
+
+    --card: 210 40% 15%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 210 40% 15%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 200 70% 60%;
+    --primary-foreground: 210 45% 8%;
+
+    --secondary: 210 35% 19%;
+    --secondary-foreground: 210 15% 80%;
+
+    --muted: 210 25% 22%;
+    --muted-foreground: 210 15% 55%;
+
+    --accent: 200 60% 50%;
+    --accent-foreground: 210 45% 8%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 210 25% 20%;
+    --input: 210 25% 20%;
+    --ring: 200 70% 60%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 210 45% 11%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 200 70% 60%;
+    --sidebar-primary-foreground: 210 45% 8%;
+    --sidebar-accent: 210 35% 19%;
+    --sidebar-accent-foreground: 0 0% 96%;
+    --sidebar-border: 210 25% 20%;
+    --sidebar-ring: 200 70% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient-navy {
+    background: linear-gradient(135deg, hsl(200 70% 60%), hsl(210 80% 75%), hsl(195 65% 55%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-navy {
+    background: linear-gradient(135deg, hsl(200 70% 60%), hsl(210 60% 50%));
+  }
+
+  .glow-navy {
+    box-shadow: 0 0 40px hsl(200 70% 60% / 0.15);
+  }
+
+  .section-padding {
+    @apply py-20 md:py-32 px-4 md:px-8;
+  }
+
+  .photo-card {
+    @apply rounded-xl overflow-hidden relative cursor-pointer;
+  }
+
+  .photo-card img {
+    @apply w-full h-full object-cover transition-transform duration-700 group-hover:scale-110;
+  }
+
+  .photo-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500;
+  }
+}
